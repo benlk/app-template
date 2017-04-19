@@ -27,7 +27,7 @@ PROJECT_FILENAME = 'espionage'
 
 # The name of the repository containing the source
 REPOSITORY_NAME = 'espionage-party-generator'
-GITHUB_USERNAME = 'nprapps'
+GITHUB_USERNAME = 'benlk'
 REPOSITORY_URL = 'git@github.com:%s/%s.git' % (GITHUB_USERNAME, REPOSITORY_NAME)
 REPOSITORY_ALT_URL = None # 'git@bitbucket.org:nprapps/%s.git' % REPOSITORY_NAME'
 
@@ -92,7 +92,7 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_KEY = '1PYZbO0D6HkyCN1Kp0c6zogIcKGi2rr2Mq9pr-F4YMrc'
+COPY_GOOGLE_DOC_KEY = '1b0KdSbGa5IvNaXKUKHApeUiQjUOK9dm4OX0niKOFxg8'
 COPY_PATH = 'data/copy.xlsx'
 
 """
