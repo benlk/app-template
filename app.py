@@ -48,7 +48,7 @@ def characters():
 
 character_slugs = get_character_slugs()
 for slug in character_slugs:
-    @app.route('/character/')
+    @app.route( '/character/%s/' % slug, endpoint=slug )
     def character():
         context = make_context()
         from flask import request
