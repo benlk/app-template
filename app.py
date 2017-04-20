@@ -17,6 +17,8 @@ from flask import Flask, make_response, render_template
 from render_utils import make_context, smarty_filter, urlencode_filter
 from werkzeug.debug import DebuggedApplication
 
+from helpers import *
+
 app = Flask(__name__)
 app.debug = app_config.DEBUG
 
@@ -34,8 +36,27 @@ def index():
     Example view demonstrating rendering a simple HTML page.
     """
     context = make_context()
-
+    context['characters'] = get_character_slugs();
     return make_response(render_template('index.html', **context))
+
+@app.route('/characters/')
+def characters():
+    context = make_context()
+
+    context['characters'] = get_character_slugs()
+    return make_response(render_template('characters.html', **context))
+
+character_slugs = get_character_slugs()
+for slug in character_slugs:
+    @app.route('/character/')
+    def character():
+        context = make_context()
+        from flask import request
+
+        context['props'] = get_props_by_slug( slug )
+        context['traits'] = get_traits_by_slug( slug )
+        context['relationships'] = get_relationships_by_slug( slug )
+        return make_response(render_template('character.html', **context))
 
 app.register_blueprint(static.static)
 app.register_blueprint(oauth.oauth)

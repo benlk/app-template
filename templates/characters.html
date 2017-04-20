@@ -20,18 +20,12 @@
         <div class="row">
             <div id="main-content" class="col-md-8">
 
-                <h1>{{ COPY.content.project_name }}</h1>
-
-                <div id="story-meta">
-                    <p class="byline">by <span>{{ COPY.content.byline }}</span></p>
-                    <p class="dateblock">
-                        <span class="date">{{ COPY.content.pubdate }}</span>
-                        <span class="time"> {{ COPY.content.pubtime }}</span>
-                    </p>
-                </div>
-
-                <h2 class="knockout-example">JST example</h2>
-                <p id="template-example"></p>
+                <h1>Character list</h1>
+                <ul>
+                {% for slug in characters %}
+                    <li>{{slug}}</li>
+                {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
