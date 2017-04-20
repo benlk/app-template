@@ -16,12 +16,21 @@ def get_character_slugs():
         slugs.append( slugify( row['id'] ) )
     return list( set( slugs ) )
 
-def get_traits_by_slug( slug ):
+def get_props():
+    copy = get_copy()
+    props = []
+    for row in copy['props']:
+        props.append( row )
+    return props
+
+# get stuff for a specific character
+
+def get_character_by_slug( slug ):
     copy = get_copy()
     traits = []
     for row in copy['characters']:
-        if row['id'] == slug:
-            traits.append( row )
+        if row['id'] == in [ 'fullname', 'alignment', 'magic', 'description' ]:
+            traits[ row['key'] ] = row['value']
     return traits
 
 def get_props_by_slug( slug ):
@@ -29,13 +38,41 @@ def get_props_by_slug( slug ):
     props = []
     for row in copy['characters']:
         if row['id'] == slug:
-            props.append( row )
+            if row['key'] == 'prop':
+                props[] = row['value']
     return props
+
+def get_rumors_by_slug( slug ):
+    copy = get_copy()
+    rumors = []
+    for row in copy['characters']:
+        if row['id'] == slug:
+            if row['key'] == 'trait':
+                rumors[] = row['value']
+    return rumors
+
+def get_traits_by_slug( slug ):
+    copy = get_copy()
+    traits = []
+    for row in copy['characters']:
+        if row['id'] == slug:
+            if row['key'] == 'trait':
+                traits[] = row['value']
+    return traits
+
+def get_goals_by_slug( slug ):
+    copy = get_copy()
+    goals = []
+    for row in copy['characters']:
+        if row['id'] == slug:
+            if row['key'] == 'goal':
+                goals[] = row['value']
+    return goals
 
 def get_relationships_by_slug( slug ):
     copy = get_copy()
     relatinoships = []
-    for row in copy['relatinoships']:
+    for row in copy['relationships']:
         if row['id'] == slug:
             relatinoships.append( row )
     return relatinoships

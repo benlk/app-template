@@ -54,8 +54,12 @@ for slug in character_slugs:
         from flask import request
 
         context['props'] = get_props_by_slug( slug )
+        context['goals'] = get_goals_by_slug( slug )
         context['traits'] = get_traits_by_slug( slug )
+        context['rumors'] = get_rumors_by_slug( slug )
+        context['character'] = get_character_by_slug( slug )
         context['relationships'] = get_relationships_by_slug( slug )
+        print( context )
         return make_response(render_template('character.html', **context))
 
 app.register_blueprint(static.static)
