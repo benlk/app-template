@@ -29,7 +29,7 @@ def get_character_by_slug( slug ):
     copy = get_copy()
     traits = []
     for row in copy['characters']:
-        if row['id'] == in [ 'fullname', 'alignment', 'magic', 'description' ]:
+        if row['id'] in [ 'fullname', 'alignment', 'magic', 'description' ]:
             traits[ row['key'] ] = row['value']
     return traits
 
@@ -39,7 +39,7 @@ def get_props_by_slug( slug ):
     for row in copy['characters']:
         if row['id'] == slug:
             if row['key'] == 'prop':
-                props[] = row['value']
+                props['name'] = row['value']
     return props
 
 def get_rumors_by_slug( slug ):
@@ -48,7 +48,7 @@ def get_rumors_by_slug( slug ):
     for row in copy['characters']:
         if row['id'] == slug:
             if row['key'] == 'trait':
-                rumors[] = row['value']
+                rumors.append( row['value'] )
     return rumors
 
 def get_traits_by_slug( slug ):
@@ -57,7 +57,7 @@ def get_traits_by_slug( slug ):
     for row in copy['characters']:
         if row['id'] == slug:
             if row['key'] == 'trait':
-                traits[] = row['value']
+                traits.append( row['value'] )
     return traits
 
 def get_goals_by_slug( slug ):
@@ -66,7 +66,7 @@ def get_goals_by_slug( slug ):
     for row in copy['characters']:
         if row['id'] == slug:
             if row['key'] == 'goal':
-                goals[] = row['value']
+                goals.append( row['value'] )
     return goals
 
 def get_relationships_by_slug( slug ):
