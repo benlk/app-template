@@ -59,7 +59,6 @@ for slug in character_slugs:
         context['rumors'] = get_rumors_by_slug( slug )
         context['character'] = get_character_by_slug( slug )
         context['relationships'] = get_relationships_by_slug( slug )
-        print( context )
         return make_response(render_template('character.html', **context))
 
 app.register_blueprint(static.static)

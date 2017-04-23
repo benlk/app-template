@@ -29,8 +29,10 @@ def get_character_by_slug( slug ):
     copy = get_copy()
     traits = []
     for row in copy['characters']:
-        if row['id'] in [ 'fullname', 'alignment', 'magic', 'description' ]:
+        if row['id'] in [ 'fullname', 'alignment', 'magic', 'description', 'word' ]:
             traits[ row['key'] ] = row['value']
+        else:
+            print row['id']
     return traits
 
 def get_props_by_slug( slug ):

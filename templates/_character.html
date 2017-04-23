@@ -1,12 +1,9 @@
 <div class="character {{ character['id'] }}">
-	<div class="leg-image-container">
-		<img src="{{ S3_BASE_URL + '/assets/' + character.id + '.jpg' }}"/>
-	</div>
 	<div class="personal-details">
 		<h1>{{ traits['fullname'] }}</h1>
+		{{ traits['description'] }}
 	</div>
 	<div class="col-left">
-		<h3>Sources of income</h3>
 		{# include '_character_positions.html' #}
 	</div>
 
